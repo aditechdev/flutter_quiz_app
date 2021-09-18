@@ -5,6 +5,13 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  MyApp({Key? key}) : super(key: key);
+
+  // MyApp({Key? key}) : super(key: key);
+
+  void answerQuestion() {
+    print('This is answer');
+  }
   // MyApp({Key? key}) : super(key: key);
 
   @override
@@ -12,21 +19,21 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Quiz App"),
+          title: Text("Quiz App"),
         ),
         body: Column(
-          children: const [
+          children: [
             Text('This is the Question?'),
             RaisedButton(
-              onPressed: null,
+              onPressed: answerQuestion,
               child: Text('Answer 1'),
             ),
             RaisedButton(
-              onPressed: null,
+              onPressed: () {},
               child: Text('Answer 2'),
             ),
             RaisedButton(
-              onPressed: null,
+              onPressed: () {},
               child: Text('Answer 3'),
             ),
           ],
