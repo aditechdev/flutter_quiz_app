@@ -5,14 +5,9 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
-
-  // MyApp({Key? key}) : super(key: key);
-
   void answerQuestion() {
     print('This is answer');
   }
-  // MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
