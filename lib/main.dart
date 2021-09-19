@@ -24,8 +24,18 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     var questions = [
-      'What\'s your fav color',
-      'What\'s your fav animal',
+      {
+        'questionText': 'What\'s your fav animal?',
+        'answer': ['Rabit', 'Snake', 'Elephant', 'Lion']
+      },
+      {
+        'questionText': 'What\'s your fav color?',
+        'answer': ['Black', 'Red', 'Green', 'White']
+      },
+      {
+        'questionText': 'What\'s your fav food?',
+        'answer': ['Paneer', 'Pulao', 'Chicken', 'Egg']
+      },
     ];
     return MaterialApp(
       home: Scaffold(
@@ -35,17 +45,18 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Questions(
-              questionText: questions.elementAt(_questionIndex),
+              questionText: '${questions[_questionIndex]["questionText"]}',
             ),
-            Answers(
-              selectHandler: _answerQuestion,
-            ),
-            Answers(
-              selectHandler: _answerQuestion,
-            ),
-            Answers(
-              selectHandler: _answerQuestion,
-            ),
+            // Map the list 
+           // Use the as List<String> to say dart that it's a list 
+           // ... this operator is called spread which help in bringing all the list at once of that index value
+            ...(questions[_questionIndex]['answer'] as List<String>)
+                .map((answerHere) {
+              return Answers(
+                selectHandler: _answerQuestion,
+                answerText: answerHere,
+              );
+            }).toList()
           ],
         ),
       ),
