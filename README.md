@@ -4,4 +4,4 @@ A new Flutter project.
 
 ## Getting Started
 
-![image info](./assets/Screenshot_1632033899.png)
+![image info](./assets/Screenshot_1632033899.png = 120*270)
