@@ -4,9 +4,9 @@ class Answers extends StatelessWidget {
   // instead of Function you should use VoidCallback
   final VoidCallback selectHandler;
   final String answerText;
-  final int score;
+  
 
-  Answers({Key key, @required this.selectHandler, @required this.answerText, @required this.score})
+  Answers({Key key, @required this.selectHandler, @required this.answerText,})
       : super(key: key);
 
   @override
