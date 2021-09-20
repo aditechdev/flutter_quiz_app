@@ -4,7 +4,7 @@ class Questions extends StatelessWidget {
   final String questionText;
 
   // Here the construstor is named arguments
-  Questions({Key? key, required this.questionText}) : super(key: key);
+  Questions({Key key, @required this.questionText}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

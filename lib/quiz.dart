@@ -5,8 +5,12 @@ import './answer.dart';
 class Quiz extends StatelessWidget {
   final List<Map<String, Object>> questions;
   final int questionIndex;
-  final VoidCallback answerQuestion;
-  Quiz({Key? key, required this.questions, required this.answerQuestion, required this.questionIndex})
+  final Function answerQuestion;
+  Quiz(
+      {Key key,
+      @required this.questions,
+      @required this.answerQuestion,
+      @required this.questionIndex})
       : super(key: key);
 
   @override
@@ -14,16 +18,22 @@ class Quiz extends StatelessWidget {
     return Column(
       children: [
         Questions(
-          questionText: '${questions[questionIndex]["questionText"]}',
+          questionText: questions[questionIndex]["questionText"] as String,
         ),
         // Map the list
         // Use the as List<String> to say dart that it's a list
         // ... this operator is called spread which help in bringing all the list at once of that index value
-        ...(questions[questionIndex]['answer'] as List<String>)
+        ...(questions[questionIndex]['answer'] as List<Map<String, Object>>)
             .map((answerHere) {
           return Answers(
-            selectHandler: answerQuestion,
-            answerText: answerHere,
+            answerText: answerHere['text'] as String,
+            selectHandler:()=> answerQuestion(
+              answerHere['score']
+            ),
+            // selectHandler: answerQuestion(
+            //   '${answerHere['score']}'
+            // ),
+            // answerText: '${answerHere['text']}',
           );
         }).toList()
       ],
